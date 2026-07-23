@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAXALUM · Lista Maestra + Calculadora</title>
+  <title>MAXALUM · Lista + Calculadora</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -30,6 +30,7 @@
       padding: 28px 32px 40px;
     }
 
+    /* HEADER */
     .header {
       display: flex;
       flex-wrap: wrap;
@@ -122,13 +123,14 @@
       transform: scale(0.96);
     }
 
+    /* CALCULADORA */
     .calc-panel {
-      background: linear-gradient(135deg, #e7f0fa 0%, #dce8f5 100%);
-      border-radius: 28px;
+      background: linear-gradient(145deg, #f0f7fe 0%, #e3edf8 100%);
+      border-radius: 32px;
       padding: 24px 32px;
       margin-bottom: 32px;
       border: 1px solid #c8d8ec;
-      box-shadow: 0 6px 16px rgba(0, 30, 60, 0.06);
+      box-shadow: 0 8px 24px rgba(0, 30, 60, 0.06);
     }
 
     .calc-header {
@@ -137,7 +139,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .calc-title {
@@ -172,19 +174,19 @@
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
-      gap: 20px 30px;
+      gap: 16px 24px;
     }
 
     .calc-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      flex: 1 1 140px;
-      min-width: 120px;
+      flex: 1 1 130px;
+      min-width: 110px;
     }
     .calc-group label {
-      font-size: 0.75rem;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 700;
       color: #1a3b5c;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -194,7 +196,7 @@
     }
     .calc-group label i {
       color: #3b6a94;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
     .calc-group input {
       padding: 12px 16px;
@@ -223,18 +225,19 @@
 
     .calc-result-box {
       background: #103c60;
-      padding: 12px 28px;
+      padding: 12px 24px;
       border-radius: 16px;
       display: flex;
       align-items: center;
       gap: 16px;
-      flex: 1 1 200px;
-      min-width: 180px;
+      flex: 1 1 180px;
+      min-width: 160px;
       box-shadow: 0 4px 12px rgba(0,30,60,0.2);
+      min-height: 64px;
     }
     .calc-result-box .result-label {
       color: #aac6e8;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -255,14 +258,17 @@
       gap: 10px;
       align-items: center;
       flex-wrap: wrap;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #d2dfef;
     }
     .calc-actions button {
       background: white;
       border: 1px solid #c6d7eb;
-      padding: 10px 18px;
+      padding: 8px 18px;
       border-radius: 14px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #1a3b5c;
       cursor: pointer;
       transition: 0.15s;
@@ -282,7 +288,37 @@
       background: #fff0f0;
       border-color: #b13e3e;
     }
+    .calc-actions button.primary-btn {
+      background: #1a4b75;
+      border-color: #1a4b75;
+      color: white;
+    }
+    .calc-actions button.primary-btn:hover {
+      background: #0f3a5c;
+    }
 
+    .calc-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: #5b7390;
+      margin-top: 12px;
+    }
+    .calc-stats .tag {
+      background: #e7f0fa;
+      padding: 4px 14px;
+      border-radius: 30px;
+      border: 1px solid #d2dfef;
+      font-weight: 500;
+      color: #1a3b5c;
+    }
+    .calc-stats .tag i {
+      margin-right: 4px;
+      color: #3b6a94;
+    }
+
+    /* TABLA */
     .table-container {
       border-radius: 24px;
       border: 1px solid #e3ebf6;
@@ -389,6 +425,7 @@
 <body>
 <div class="app" id="app">
 
+  <!-- HEADER -->
   <div class="header">
     <div class="logo">
       <h1><i class="fas fa-cubes"></i> MAXALUM <small>· lista completa</small></h1>
@@ -400,19 +437,16 @@
     </div>
   </div>
 
+  <!-- CALCULADORA -->
   <div class="calc-panel">
     <div class="calc-header">
       <div class="calc-title">
         <i class="fas fa-calculator"></i>
         <div>
           <h2>Calculadora de láminas</h2>
-          <span style="font-size:0.8rem; color:#3b6a94;">Precio × Largo × Cantidad</span>
+          <span style="font-size:0.75rem; color:#3b6a94;">Precio × Largo × Cantidad</span>
         </div>
         <span class="badge"><i class="fas fa-arrow-right"></i> total</span>
-      </div>
-      <div class="calc-actions">
-        <button id="clearCalcBtn" class="clear-btn"><i class="fas fa-undo-alt"></i> Limpiar</button>
-        <button id="exampleBtn"><i class="fas fa-lightbulb"></i> Ejemplo</button>
       </div>
     </div>
 
@@ -437,8 +471,20 @@
         </div>
       </div>
     </div>
+
+    <div class="calc-actions">
+      <button id="exampleBtn" class="primary-btn"><i class="fas fa-lightbulb"></i> Ejemplo</button>
+      <button id="clearCalcBtn" class="clear-btn"><i class="fas fa-undo-alt"></i> Limpiar</button>
+      <button id="copyResultBtn"><i class="fas fa-copy"></i> Copiar total</button>
+    </div>
+
+    <div class="calc-stats">
+      <span class="tag"><i class="fas fa-arrow-right"></i> Precio por m²: <span id="pricePerM2">₡0.00</span></span>
+      <span class="tag"><i class="fas fa-arrow-right"></i> Precio por unidad: <span id="pricePerUnit">₡0.00</span></span>
+    </div>
   </div>
 
+  <!-- TABLA -->
   <div class="table-container">
     <table>
       <thead>
@@ -461,7 +507,7 @@
 <script>
   (function() {
     // ================================================================
-    // LISTA COMPLETA CON TODOS LOS PRODUCTOS DEL PDF (incluye página 2 y 3)
+    // LISTA COMPLETA CON TODOS LOS PRODUCTOS DEL PDF (páginas 1, 2 y 3)
     // ================================================================
     const items = [
       // ---- PÁGINA 1 (MAXALUM, STARMAX, COLORALUM, etc.) ----
@@ -881,8 +927,11 @@
     const largoInput = document.getElementById('largoInput');
     const cantidadInput = document.getElementById('cantidadInput');
     const priceTotalDisplay = document.getElementById('priceTotalDisplay');
+    const pricePerM2 = document.getElementById('pricePerM2');
+    const pricePerUnit = document.getElementById('pricePerUnit');
     const clearCalcBtn = document.getElementById('clearCalcBtn');
     const exampleBtn = document.getElementById('exampleBtn');
+    const copyResultBtn = document.getElementById('copyResultBtn');
 
     // Render
     function renderItems(list) {
@@ -925,13 +974,21 @@
 
     // Calculadora
     function updateTotal() {
-      let precio = parseFloat(precioInput.value.replace(',', '.')) || 0;
-      let largo = parseFloat(largoInput.value.replace(',', '.')) || 0;
-      let cantidad = parseFloat(cantidadInput.value.replace(',', '.')) || 0;
-      if (largo < 0) largo = 0;
-      if (cantidad < 0) cantidad = 0;
+      const precio = parseFloat(precioInput.value.replace(',', '.')) || 0;
+      const largo = parseFloat(largoInput.value.replace(',', '.')) || 0;
+      const cantidad = parseFloat(cantidadInput.value.replace(',', '.')) || 0;
+
       const total = precio * largo * cantidad;
-      priceTotalDisplay.textContent = `₡${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+      const precioPorM2 = largo > 0 ? precio / largo : 0;
+      const precioPorUnidad = precio;
+
+      const format = (num) => {
+        return `₡${num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+      };
+
+      priceTotalDisplay.textContent = total > 0 ? format(total) : '₡0.00';
+      pricePerM2.textContent = precioPorM2 > 0 ? format(precioPorM2) : '₡0.00';
+      pricePerUnit.textContent = precio > 0 ? format(precio) : '₡0.00';
     }
 
     precioInput.addEventListener('input', updateTotal);
@@ -950,6 +1007,23 @@
       largoInput.value = '2.44';
       cantidadInput.value = '5';
       updateTotal();
+    });
+
+    copyResultBtn.addEventListener('click', () => {
+      const totalText = priceTotalDisplay.textContent;
+      if (totalText && totalText !== '₡0.00') {
+        navigator.clipboard.writeText(totalText).then(() => {
+          const original = copyResultBtn.innerHTML;
+          copyResultBtn.innerHTML = '<i class="fas fa-check"></i> Copiado';
+          setTimeout(() => {
+            copyResultBtn.innerHTML = original;
+          }, 2000);
+        }).catch(() => {
+          alert('Total: ' + totalText);
+        });
+      } else {
+        alert('Primero ingrese valores para calcular un total.');
+      }
     });
 
     // Inicializar
